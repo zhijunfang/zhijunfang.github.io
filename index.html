@@ -1,62 +1,269 @@
 <!DOCTYPE html>
-<!-- HTML5 标准文档声明 -->
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 移动端适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简介</title>
+    <title>方志军教授 - 个人主页</title>
     <style>
-        /* 简单美化样式，让页面更美观 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: "Microsoft YaHei", sans-serif;
         }
+
         body {
-            background-color: #f5f5f5;
-            padding: 40px 20px;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.7;
+            padding-top: 70px;
         }
-        .profile {
-            max-width: 600px;
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #2c3e50;
+            z-index: 999;
+        }
+
+        .nav-container {
+            max-width: 1100px;
             margin: 0 auto;
-            background: white;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            padding: 0 15px;
+        }
+
+        .nav-container a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 8px 6px;
+            transition: 0.2s;
+        }
+
+        .nav-container a:hover {
+            color: #3498db;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
         }
-        h1 {
+
+        .header h1 {
+            font-size: 34px;
             color: #2c3e50;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            margin-bottom: 10px;
         }
-        p {
-            color: #555;
-            line-height: 1.8;
-            margin: 12px 0;
+
+        .title {
+            font-size: 17px;
+            color: #7f8c8d;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            color: #2980b9;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .section p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 10px;
             font-size: 16px;
         }
-        .info-item {
-            color: #3498db;
-            font-weight: bold;
+
+        h3 {
+            margin: 20px 0 12px;
+            color: #34495e;
+            font-size: 18px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                height: auto;
+                padding: 10px 0;
+            }
+            .nav-container {
+                gap: 12px;
+            }
+            body {
+                padding-top: 100px;
+            }
+            .header h1 {
+                font-size: 26px;
+            }
+            .section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- HTML5 语义化标签：包裹个人简介主体内容 -->
-    <main class="profile">
-        <h1>个人简介</h1>
-        
-        <p><span class="info-item">姓名：</span>zhijunfang</p>
-        <p><span class="info-item">职业：</span>前端开发工程师 / 编程爱好者</p>
-        <p><span class="info-item">爱好：</span> coding、阅读、户外运动、摄影</p>
-        
-        <p>大家好！我是一名热爱技术、专注前端开发的从业者，熟悉 HTML5、CSS3、JavaScript 等前端核心技术。
-        我热衷于用代码实现创意，不断学习新的技术栈，追求简洁、高效、用户友好的开发体验。</p>
-        
-        <p>生活中我积极乐观，喜欢探索新鲜事物，注重团队协作与自我提升，始终保持对编程的热情与初心。</p>
-    </main>
+
+<!-- 固定导航栏 -->
+<div class="navbar">
+    <div class="nav-container">
+        <a href="#intro">个人简介</a>
+        <a href="#research">研究方向</a>
+        <a href="#award">获奖情况</a>
+        <a href="#project">科研项目</a>
+        <a href="#paper">论文专利</a>
+        <a href="#parttime">学术兼职</a>
+        <a href="#global">国际交流</a>
+        <a href="#contact">联系方式</a>
+    </div>
+</div>
+
+<div class="container">
+    <!-- 头部 -->
+    <div class="header">
+        <h1>方志军 教授</h1>
+        <p class="title">二级教授 | 博士生导师 | 上海交通大学工学博士 | 美国华盛顿大学访问学者</p>
+    </div>
+
+    <!-- 个人简介 -->
+    <div class="section" id="intro">
+        <h2>个人简介</h2>
+        <p>方志军，二级教授，1971年9月生，上海交通大学工学博士，美国华盛顿大学访问学者，博士生导师。长期致力于人工智能、数据分析、智能制造等领域的研究，先后主持科技部科技创新2030-“新一代人工智能”重大项目、国家自然科学基金联合基金重点项目、国家自然科学基金面上项目等，相关成果在IEEE TIP、IEEE TSMC等学术期刊上发表论文近百篇，获省部级以上科技成果奖5项。</p>
+        <p>参与组织了全国第一个5G校园建设，推动数据智能在中国商飞、北京大兴国际机场、上汽集团、复旦眼耳鼻喉科医院、华润江中等企事业单位应用落地，完成知识成果转化2700万元。</p>
+    </div>
+
+    <!-- 研究方向 -->
+    <div class="section" id="research">
+        <h2>研究方向</h2>
+        <ul>
+            <li>机器视觉</li>
+            <li>数据智能</li>
+        </ul>
+    </div>
+
+    <!-- 荣誉及获奖 -->
+    <div class="section" id="award">
+        <h2>荣誉及获奖情况</h2>
+        <ul>
+            <li>2023年，中国产学研合作创新奖</li>
+            <li>2022年，应用型本科院校大电类专业的内涵更新改造与实施，上海市教学成果奖一等奖</li>
+            <li>2021年，上海市五一劳动奖章</li>
+            <li>2020年，复杂受限动态系统分析和控制，上海市自然科学奖二等奖</li>
+            <li>2020年，多源电力系统智能化高可靠性协同运行控制关键及应用，上海市科技进步奖二等奖</li>
+            <li>2019年，视频图像特征表达与智能分析，江西省自然科学奖一等奖</li>
+            <li>2019年，跨相机智能视频处理与分析关键技术及其产业化，上海市科技进步奖二等奖</li>
+            <li>2018年，多域融合的边缘计算接入网关键技术及应用，上海市技术发明奖一等奖</li>
+        </ul>
+    </div>
+
+    <!-- 科研项目 -->
+    <div class="section" id="project">
+        <h2>近年来承担的主要科研项目</h2>
+        <ul>
+            <li>“工业领域知识自动构建与推理决策技术及应用”，科技部科技创新2030—“新一代人工智能”重大项目，2020AAA0109300，项目经费6815万元，主持，2020.11～2023.10</li>
+            <li>“多源数据融合的机场道面关键参数提取和状态评估技术”，国家基金委民航联合基金重点项目，U2033218，项目经费210万元，主持，2021.01～2024.12</li>
+            <li>“自主学习的移动互联网视频传输基础理论与方法”，国家自然科学基金重点项目，61831018，项目经费292万元，合作单位主持，2019.01～2023.12</li>
+            <li>“面向物体级的视觉SLAM动态三维场景解析与重建”，国家自然科学基金项目61772328，项目经费62万元，主持，2018.01～2020.12</li>
+            <li>“RH项目”，工信部，项目经费200万元，主持，2022.01～2023.09</li>
+            <li>“上海市数据智能及其应用协同创新中心”，上海市教委，项目经费2500万元，主持，2021.8～2025.12</li>
+        </ul>
+    </div>
+
+    <!-- 论著专利 -->
+    <div class="section" id="paper">
+        <h2>近年来发表的代表性论著、专利</h2>
+        <h3>代表性论文</h3>
+        <ul>
+            <li>A Multiscale Coarse-to-Fine Human Pose Estimation Network With Hard Keypoint Mining. IEEE Transactions on Systems, Man, and Cybernetics: Systems, 2023.</li>
+            <li>A lightweight network for smoke semantic segmentation. Pattern Recognition, 2023, 137: 109289.</li>
+            <li>Depth estimation using a self-supervised network based on cross-layer feature fusion and the quadtree constraint. IEEE transactions on circuits and systems for video technology, 2021, 32(4): 1751-1766.</li>
+            <li>Adversarial learning for joint optimization of depth and ego-motion. IEEE Transactions on Image Processing, 2020, 29: 4130-4142.</li>
+            <li>LFT-Net: Local feature transformer network for point clouds analysis. IEEE transactions on intelligent transportation systems, 2022, 24(2): 2158-2168.</li>
+        </ul>
+
+        <h3>授权发明专利</h3>
+        <ul>
+            <li>一种基于自监督学习的目标三维重建方法, 发明专利, ZL 2019 1 0367420.6</li>
+            <li>一种实现室内无人机对大部件表面缺陷进行检测的方法, 发明专利, ZL 2020 1 1575169.1</li>
+            <li>一种基于CT影像的胃癌智能分期方法, 发明专利, ZL 2021 1 0787777.7</li>
+            <li>一种基于点线特征的RGB-D视觉SLAM方法，发明专利, ZL 202011358438.9</li>
+            <li>一种基于方向角信息进行三维目标检测的方法, 发明专利, ZL 2018 1 0314274.6</li>
+            <li>一种基于混合自动机的物流网络优化方法, 发明专利, ZL 2018 1 1179167.3</li>
+            <li>一种室内无人机精确定位与自主导航的系统及方法, 发明专利，ZL 2019 1 0737888.X</li>
+        </ul>
+    </div>
+
+    <!-- 学术兼职 -->
+    <div class="section" id="parttime">
+        <h2>主要学术兼职</h2>
+        <ul>
+            <li>全国高校人工智能与大数据创新联盟副理事长</li>
+            <li>中国计算机学会上海会员活动中心副主席</li>
+            <li>江西省公共安全产业联盟与公共安全科技创新联合会副理事长</li>
+        </ul>
+    </div>
+    <!-- 国际交流 -->
+    <div class="section" id="global">
+        <h2>国际交流与合作</h2>
+        <p>先后在美国华盛顿大学、美国佛罗里达理工学院和新加坡南洋理工大学进行访学或进修。</p>
+    </div>
+
+    <!-- 联系方式 -->
+    <div class="section" id="contact">
+        <h2>联系方式</h2>
+        <div class="contact-info">
+            <div class="contact-item">邮箱：zjfang@fudan.edu.cn</div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
